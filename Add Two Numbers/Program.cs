@@ -1,9 +1,11 @@
 ﻿//https://leetcode.com/problems/add-two-numbers/
 
-int[] one = new int[] { 3, 2, 3 };
-int[] two = new int[] { 2, 1, 4 };
+int[] one = new int[] { 1,2,3 };
+int[] two = new int[] {2,3,4};
 Solution solution = new Solution();
 Console.WriteLine(solution.AddTwoNumbers(one, two));
+
+
 
 
 public class Solution

@@ -1,35 +1,73 @@
 ﻿//https://leetcode.com/problems/median-of-two-sorted-arrays
 
-int[] mas1 = new int[] { 1, 4, 2 };
-int[] mas2 = new int[] { 3, 2 };
-Median.GetMedian(mas1, mas2);
+int[] mas1 = new int[] { 1, 2,2 ,4};
+int[] mas2 = new int[] { 1,3,6,8,3 };
+Median median = new Median();
+Console.WriteLine(median.GetMedian(mas1, mas2));
 
 
 public class Median
 {
-    public static void GetMedian(int[] mas1, int[] mas2)
+
+    public string GetMedian(int[] l1, int[] l2)
     {
+        string median;
 
-        if (((mas1.Length + mas2.Length) % 2) == 0)
+        int[] add = add_cycle(l1, l2);
+
+        if (add.Length % 2 > 0)
         {
-            double one = mas1[mas1.Length - 1];
-            double two = mas2[0];
-            double result = (one + two) / 2;
-            Console.WriteLine(result);
+            median = add[((add.Length + 1) / 2)-1] + " ";
         }
-
         else
         {
-            if ((mas1.Length % 2) != 0)
+           
+            median = (double)((add[(add.Length / 2) - 1] + (add[add.Length / 2]))) / 2 + " ";
+        }
+
+
+
+        return median;
+    }
+
+
+    public int[] add_cycle(int[] secondary, int[] secondary2)
+    {
+        int[] arr = new int[secondary.Length + secondary2.Length];
+        for (int i = 0; i < secondary.Length; i++)
+        {
+            arr[i] = secondary[i];
+        }
+        for (int i = 0; i < secondary2.Length; i++)
+        {
+            arr[secondary.Length + i] = secondary2[i];
+        }
+
+        return sortinig(arr);
+    }
+
+    public int[] sortinig(int[] sort)
+    {
+        for (int i = 0; i < sort.Length; i++)
+        {
+            for (int j = i+1; j < sort.Length; j++)
             {
-                Console.WriteLine(mas1[mas1.Length - 1]);
-            }
-            else
-            {
-                Console.WriteLine(mas2[0]);
+
+                if (sort[i] > sort[j])
+                {
+                    int one = sort[i];
+                    int two = sort[j];
+
+
+                    sort[i] = two;
+                    sort[j] = one;
+
+                }
             }
         }
 
+
+        return sort;
     }
 }
 
