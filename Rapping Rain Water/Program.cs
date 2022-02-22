@@ -1,5 +1,6 @@
-﻿
-int[] height = new int[] { 0, 0, 5, 3, 4, 5, 2, 6, 5, 4, 3, 6, 2, 3, 2 };
+﻿//https://leetcode.com/problems/trapping-rain-water/
+
+int[] height = new int[] { 0, 0, 5, 3, 4, 2, 4, 6, 5, 4, 3, 7, 2, 3, 2 };
 
 Solution solution = new Solution();
 
